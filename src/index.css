@@ -4,8 +4,60 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --color-gray: #efefef;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+@media (max-width: 1920px) {
+  html {
+    font-size: 22px;
+  }
+}
+@media (max-width: 1750px) {
+  html {
+    font-size: 20.5px;
+  }
+}
+@media (max-width: 1600px) {
+  html {
+    font-size: 20px;
+  }
+}
+@media (max-width: 1480px) {
+  html {
+    font-size: 18.5px;
+  }
+}
+@media (max-width: 1366px) {
+  html {
+    font-size: 16.5px;
+  }
+}
+@media (max-width: 1200px) {
+  html {
+    font-size: 15.5px;
+  }
+}
+@media (max-width: 1000px) {
+  html {
+    font-size: 14.2px;
+  }
+}
+@media (max-width: 925px) {
+  html {
+    font-size: 13.2px;
+  }
+}
+@media (max-width: 800px) {
+  html {
+    font-size: 12.2px;
+  }
+}
+@media (max-width: 700px) {
+  html {
+    font-size: 13.8px;
+  }
 }

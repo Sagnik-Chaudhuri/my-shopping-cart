@@ -1,9 +1,17 @@
 .container {
 }
-.headerLine {
-  border-bottom: 1px solid;
+.header {
+  border-bottom: 2px solid var(--color-gray);
+  margin: 10px;
 }
 .itemsHeaderContainer {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  border-bottom: 2px solid var(--color-gray);
+}
+.itemHeader {
+  flex: 0.4;
 }

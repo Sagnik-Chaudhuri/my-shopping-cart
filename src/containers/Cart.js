@@ -9,19 +9,20 @@ const Cart = () => {
 
   return (
     <div className='container'>
-      <div className='headerLine'>
-        <h1>Order Summary</h1>
+      <div className='header'>
+        <h2>Order Summary</h2>
       </div>
       {cartState.length > 0 && (
         <div className='itemsHeaderContainer'>
-          <div className='itemHeader'>Items ({cartState.length})</div>
-          <div>Qty</div>
-          <div>Price</div>
+          <p className='itemHeader'>Items ({cartState.length})</p>
+          <p>Qty</p>
+          <p>Price</p>
         </div>
       )}
       {cartState.map((item, _index) => (
         <Item
           key={item.id}
+          image={item.img_url}
           name={item.name}
           price={item.price}
           quantity={item.quantity}
