@@ -66,3 +66,9 @@ export const dummyShoppingCartData = [
 ];
 
 export const fictionTypeDiscountName = 'fiction';
+export const initialCartState = dummyShoppingCartData.map((cartItem) => {
+  return {
+    ...cartItem,
+    quantity: 1,
+  };
+});

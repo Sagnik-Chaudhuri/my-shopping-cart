@@ -1,0 +1,9 @@
+.container {
+}
+.headerLine {
+  border-bottom: 1px solid;
+}
+.itemsHeaderContainer {
+  display: flex;
+  flex-direction: row;
+}
