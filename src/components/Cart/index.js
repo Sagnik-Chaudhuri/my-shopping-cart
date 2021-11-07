@@ -1,2 +1,2 @@
 export { default as Item } from './Item';
-export { default as PriceContainer } from './PriceContainer';
+export { default as SummaryBox } from './SummaryBox';

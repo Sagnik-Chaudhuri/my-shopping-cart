@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Item, PriceContainer } from '../components/Cart';
+import { Item, SummaryBox } from '../components/Cart';
 
 import * as constants from '../constants/index';
 import './Cart.css';

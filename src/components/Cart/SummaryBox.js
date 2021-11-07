@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const PriceContainer = (props) => {
+const SummaryBox = (props) => {
   const { itemsCount, priceWithoutDiscount, discountsArray, priceWithDiscount } = props;
 
   return (
@@ -24,4 +24,4 @@ const PriceContainer = (props) => {
   );
 };
 
-export default PriceContainer;
+export default SummaryBox;
