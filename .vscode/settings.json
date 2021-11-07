@@ -1,0 +1,8 @@
+{
+  "editor.formatOnSave": true,
+  "prettier.packageManager": "yarn",
+  "prettier.requireConfig": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
