@@ -1,0 +1,28 @@
+.wrapper {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 2px solid var(--color-gray);
+  margin: 10px;
+}
+.wrapper > p {
+  margin: 10px;
+}
+.rowItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+.rowItem > p {
+}
+.orderTotal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--color-gray);
+  font-weight: bold;
+}

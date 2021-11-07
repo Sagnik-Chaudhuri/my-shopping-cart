@@ -1,7 +1,6 @@
 .container {
 }
 .header {
-  border-bottom: 2px solid var(--color-gray);
   margin: 10px;
 }
 .itemsHeaderContainer {
@@ -11,7 +10,21 @@
   align-items: center;
   margin: 10px;
   border-bottom: 2px solid var(--color-gray);
+  border-top: 2px solid var(--color-gray);
 }
 .itemHeader {
   flex: 0.4;
+}
+.itemAndPricingBoxContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.itemBoxContainer {
+  flex: 3;
+}
+.pricingBoxContainer {
+  flex: 1;
+  align-self: start;
 }
