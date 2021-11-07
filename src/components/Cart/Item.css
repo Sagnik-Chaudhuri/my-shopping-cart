@@ -26,3 +26,21 @@
 .itemName {
   flex: 1;
 }
+.itemQuantityContainer {
+  flex: 0.1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.itemQuantityContainer > button {
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+}
+.itemQuantityContainer > span {
+  box-shadow: 2.5px 5px 7.5px -0.5px var(--color-gray);
+  border: 2px solid var(--color-gray);
+  flex: 0.6;
+  padding: 10px 30px;
+}

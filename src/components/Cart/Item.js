@@ -12,8 +12,16 @@ const Item = (props) => {
           X
         </button>
       </div>
-      <div>{quantity}</div>
-      <div>{price}</div>
+      <div className='itemQuantityContainer'>
+        <button type='button' onClick={() => console.log('decrement')}>
+          -
+        </button>
+        <span>{quantity}</span>
+        <button type='button' onClick={() => console.log('increment')}>
+          +
+        </button>
+      </div>
+      <div>${price}</div>
     </div>
   );
 };
