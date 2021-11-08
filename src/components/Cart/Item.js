@@ -3,7 +3,6 @@ import './Item.css';
 // style={{ backgroundImage: `url(${image})` }}
 const Item = (props) => {
   const { id, name, quantity, price, image, cartState, setCartState, pushToToast } = props;
-  const [decrementButtonDisabled, setDecrementButtonDisabled] = useState(true);
 
   const handleIncrementButtonClick = (ev) => {
     const updatedCartState = cartState.map((item) => {
@@ -14,21 +13,20 @@ const Item = (props) => {
     });
     setCartState(updatedCartState);
     window.localStorage.setItem('cartState', JSON.stringify(updatedCartState));
-    setDecrementButtonDisabled(false);
   };
 
   const handleDecrementButtonClick = (ev) => {
     const updatedCartState = cartState.map((item) => {
       return {
         ...item,
-        quantity: item.id == ev.target.value ? item.quantity - 1 : item.quantity,
+        quantity:
+          item.id == ev.target.value && item.quantity > 1 ? item.quantity - 1 : item.quantity,
       };
     });
     setCartState(updatedCartState);
     window.localStorage.setItem('cartState', JSON.stringify(updatedCartState));
     const itemToUpdate = updatedCartState.find((item) => item.id == ev.target.value);
     if (itemToUpdate.quantity == 1) {
-      setDecrementButtonDisabled(true);
     }
   };
 
@@ -55,12 +53,7 @@ const Item = (props) => {
         </button>
       </div>
       <div className='itemQuantityContainer'>
-        <button
-          type='button'
-          onClick={(ev) => handleDecrementButtonClick(ev)}
-          value={id}
-          disabled={decrementButtonDisabled}
-        >
+        <button type='button' onClick={(ev) => handleDecrementButtonClick(ev)} value={id}>
           -
         </button>
         <span>{quantity}</span>
