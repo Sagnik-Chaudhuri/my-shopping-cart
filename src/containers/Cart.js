@@ -80,6 +80,8 @@ const Cart = () => {
               name={item.name}
               price={item.price}
               quantity={item.quantity}
+              id={item.id}
+              cartState={cartState}
               setCartState={setCartState}
             />
           ))}
