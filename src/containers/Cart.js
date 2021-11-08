@@ -6,6 +6,58 @@ import './Cart.css';
 
 const Cart = () => {
   const [cartState, setCartState] = useState(constants.initialCartState);
+  const [discounts, setDiscounts] = useState([]);
+  const [priceWithDiscount, setPriceWithDiscount] = useState(0);
+  const [priceWithoutDiscount, setPriceWithoutDiscount] = useState(0);
+
+  useEffect(() => {
+    const discountObject = cartState.reduce(
+      (discounts, item) => {
+        let itemTypeDiscount = 0;
+        if (item.type === constants.fictionTypeDiscountName) {
+          itemTypeDiscount = (item.price - item.discount) * 0.15;
+          discounts = {
+            ...discounts,
+            typeDiscountValue: discounts.typeDiscountValue + itemTypeDiscount,
+          };
+        }
+        return {
+          ...discounts,
+          normalDiscountValue: discounts.normalDiscountValue + item.discount,
+        };
+      },
+      { normalDiscountValue: 0, typeDiscountValue: 0 },
+    );
+    if (discountObject['normalDiscountValue'] <= 0) {
+      return;
+    }
+    const discountsArray = Object.keys(discountObject).map((discount) => {
+      if (discount === 'typeDiscountValue') {
+        return {
+          name: 'Type discount',
+          value: discountObject[discount],
+        };
+      }
+      return {
+        name: 'Discount',
+        value: discountObject[discount],
+      };
+    });
+    setDiscounts(discountsArray);
+  }, [cartState]);
+
+  useEffect(() => {
+    const cartPriceWithoutDiscount = cartState.reduce(
+      (priceSum, item) => (priceSum += item.price),
+      0,
+    );
+    setPriceWithoutDiscount(cartPriceWithoutDiscount);
+    const cartPriceWithDiscount = discounts.reduce(
+      (sum, discount) => (sum -= discount.value),
+      cartPriceWithoutDiscount,
+    );
+    setPriceWithDiscount(cartPriceWithDiscount);
+  }, [discounts]);
 
   return (
     <div className='mainContainer'>
@@ -35,9 +87,9 @@ const Cart = () => {
         <div className='pricingBoxContainer'>
           <PricingSummaryBox
             itemsCount={cartState.length}
-            priceWithoutDiscount={12}
-            discountsArray={[{ name: 'Discount', value: '10' }]}
-            priceWithDiscount={12}
+            priceWithoutDiscount={priceWithoutDiscount}
+            discountsArray={discounts}
+            priceWithDiscount={priceWithDiscount}
           />
         </div>
       </div>

@@ -9,17 +9,17 @@ const PricingSummaryBox = (props) => {
       <p style={{ fontWeight: 'bold' }}>Total</p>
       <div className='rowItem'>
         <p>Items ({itemsCount}) :</p>
-        <p> ${priceWithoutDiscount}</p>
+        <p> ${parseFloat(priceWithoutDiscount).toFixed(2)}</p>
       </div>
       {discountsArray.map((discount, index) => (
-        <div className='rowItem'>
+        <div className='rowItem' key={discount.name}>
           <p>{discount.name} :</p>
-          <p>-${discount.value}</p>
+          <p>-${parseFloat(discount.value).toFixed(2)}</p>
         </div>
       ))}
       <div className='orderTotal'>
         <p>Order Total : </p>
-        <p>{priceWithDiscount}</p>
+        <p>${parseFloat(priceWithDiscount).toFixed(2)}</p>
       </div>
     </div>
   );
