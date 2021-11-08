@@ -92,6 +92,11 @@ const Cart = () => {
     });
   };
 
+  const resetCartData = () => {
+    setCartState(constants.initialCartState);
+    window.localStorage.setItem('cartState', JSON.stringify(cartState));
+  };
+
   return (
     <>
       <CustomToast toastItems={toastItems} />
@@ -100,28 +105,35 @@ const Cart = () => {
           <h2>Order Summary</h2>
         </div>
         <div className='itemAndPricingBoxContainer'>
-          <div className='itemBoxContainer'>
-            {cartState.length > 0 && (
+          {cartState.length > 0 && (
+            <div className='itemBoxContainer'>
               <div className='itemsHeaderContainer'>
                 <p className='itemHeader'>Items ({cartState.length})</p>
                 <p>Qty</p>
                 <p>Price</p>
               </div>
-            )}
-            {cartState.map((item, _index) => (
-              <Item
-                key={item.id}
-                image={item.img_url}
-                name={item.name}
-                price={item.price}
-                quantity={item.quantity}
-                id={item.id}
-                cartState={cartState}
-                pushToToast={pushToToast}
-                setCartState={setCartState}
-              />
-            ))}
-          </div>
+              {cartState.map((item, _index) => (
+                <Item
+                  key={item.id}
+                  image={item.img_url}
+                  name={item.name}
+                  price={item.price}
+                  quantity={item.quantity}
+                  id={item.id}
+                  cartState={cartState}
+                  pushToToast={pushToToast}
+                  setCartState={setCartState}
+                />
+              ))}
+            </div>
+          )}
+          {cartState.length === 0 && (
+            <div className='resetButton'>
+              <button type='button' onClick={() => resetCartData()}>
+                Reset Cart Data
+              </button>
+            </div>
+          )}
           <div className='pricingBoxContainer'>
             <PricingSummaryBox
               itemsCount={cartState.length}

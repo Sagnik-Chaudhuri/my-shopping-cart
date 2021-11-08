@@ -28,3 +28,11 @@
   flex: 1;
   align-self: start;
 }
+.resetButton {
+  height: 5vh;
+  align-self: center;
+  justify-self: center;
+  flex: 3;
+  display: flex;
+  justify-content: center;
+}
