@@ -39,9 +39,7 @@ const Cart = () => {
       },
       { normalDiscountValue: 0, typeDiscountValue: 0 },
     );
-    if (discountObject['normalDiscountValue'] <= 0) {
-      return;
-    }
+
     const discountsArray = Object.keys(discountObject).map((discount) => {
       if (discount === 'typeDiscountValue') {
         return {
@@ -94,7 +92,7 @@ const Cart = () => {
 
   const resetCartData = () => {
     setCartState(constants.initialCartState);
-    window.localStorage.setItem('cartState', JSON.stringify(cartState));
+    window.localStorage.setItem('cartState', JSON.stringify(constants.initialCartState));
   };
 
   return (
