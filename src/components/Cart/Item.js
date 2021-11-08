@@ -13,6 +13,7 @@ const Item = (props) => {
       };
     });
     setCartState(updatedCartState);
+    window.localStorage.setItem('cartState', JSON.stringify(updatedCartState));
     setDecrementButtonDisabled(false);
   };
 
@@ -24,6 +25,7 @@ const Item = (props) => {
       };
     });
     setCartState(updatedCartState);
+    window.localStorage.setItem('cartState', JSON.stringify(updatedCartState));
     const itemToUpdate = updatedCartState.find((item) => item.id == ev.target.value);
     if (itemToUpdate.quantity == 1) {
       setDecrementButtonDisabled(true);
@@ -34,6 +36,7 @@ const Item = (props) => {
     const updatedCartState = cartState.filter((item) => item.id != ev.target.value);
     const itemRemoved = cartState.find((item) => item.id == ev.target.value);
     setCartState(updatedCartState);
+    window.localStorage.setItem('cartState', JSON.stringify(updatedCartState));
     pushToToast(`${itemRemoved.name} removed`);
   };
 

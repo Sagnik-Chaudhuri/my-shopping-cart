@@ -5,11 +5,19 @@ import * as constants from '../constants/index';
 import './Cart.css';
 
 const Cart = () => {
-  const [cartState, setCartState] = useState(constants.initialCartState);
+  const [cartState, setCartState] = useState([]);
   const [discounts, setDiscounts] = useState([]);
   const [priceWithDiscount, setPriceWithDiscount] = useState(0);
   const [priceWithoutDiscount, setPriceWithoutDiscount] = useState(0);
   const [toastItems, setToastItems] = useState([]);
+
+  useEffect(() => {
+    if (window.localStorage.getItem('cartState')) {
+      setCartState(JSON.parse(window.localStorage.getItem('cartState')));
+    } else {
+      setCartState(constants.initialCartState);
+    }
+  }, []);
 
   useEffect(() => {
     const discountObject = cartState.reduce(
