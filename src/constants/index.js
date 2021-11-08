@@ -72,3 +72,4 @@ export const initialCartState = dummyShoppingCartData.map((cartItem) => {
     quantity: 1,
   };
 });
+export const toastTimerInMs = 4000;

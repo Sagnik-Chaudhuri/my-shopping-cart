@@ -1,0 +1,38 @@
+.toastMain {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 35vw;
+  height: 3vw;
+  display: grid;
+  transition: all 0.3s;
+}
+.toastTimer {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 0px;
+  width: 100%;
+  background-color: grey;
+  height: 0.3rem;
+  border: none;
+  animation: mymove forwards 4s;
+}
+.toastMessage {
+  width: 100%;
+  padding: 0px 10px;
+  box-sizing: border-box;
+  background: green;
+  color: white;
+  position: relative;
+  animation-delay: 2s;
+}
+
+@keyframes mymove {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}

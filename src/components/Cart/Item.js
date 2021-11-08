@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Item.css';
 // style={{ backgroundImage: `url(${image})` }}
 const Item = (props) => {
-  const { id, name, quantity, price, image, cartState, setCartState } = props;
+  const { id, name, quantity, price, image, cartState, setCartState, pushToToast } = props;
   const [decrementButtonDisabled, setDecrementButtonDisabled] = useState(true);
 
   const handleIncrementButtonClick = (ev) => {
@@ -15,6 +15,7 @@ const Item = (props) => {
     setCartState(updatedCartState);
     setDecrementButtonDisabled(false);
   };
+
   const handleDecrementButtonClick = (ev) => {
     const updatedCartState = cartState.map((item) => {
       return {
@@ -28,9 +29,12 @@ const Item = (props) => {
       setDecrementButtonDisabled(true);
     }
   };
+
   const handleItemRemoveButtonClick = (ev) => {
     const updatedCartState = cartState.filter((item) => item.id != ev.target.value);
+    const itemRemoved = cartState.find((item) => item.id == ev.target.value);
     setCartState(updatedCartState);
+    pushToToast(`${itemRemoved.name} removed`);
   };
 
   return (
